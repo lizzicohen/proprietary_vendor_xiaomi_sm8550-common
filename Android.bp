@@ -11204,32 +11204,6 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libvmmem",
-    owner: "xiaomi",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libvmmem.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libbase",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
     name: "libvppclient",
     owner: "xiaomi",
     strip: {
@@ -19388,6 +19362,15 @@ dex_import {
         "proprietary/product/framework/uimservicelibrary.jar",
     ],
     product_specific: true,
+}
+
+dex_import {
+    name: "camerax-vendor-extensions",
+    owner: "xiaomi",
+    jars: [
+        "proprietary/system_ext/framework/camerax-vendor-extensions.jar",
+    ],
+    system_ext_specific: true,
 }
 
 dex_import {

@@ -754,7 +754,6 @@ PRODUCT_PACKAGES += \
     libvideotxr \
     libvideoutils \
     libvmfilexfer \
-    libvmmem \
     libvppclient \
     libvppcommon \
     libvpphcp \
@@ -1032,6 +1031,7 @@ PRODUCT_PACKAGES += \
     uimgbalibrary \
     uimgbamanagerlibrary \
     uimservicelibrary \
+    camerax-vendor-extensions \
     com.android.hotwordenrollment.common.util \
     com.qualcomm.qti.imscmservice-V2.0-java \
     com.qualcomm.qti.imscmservice-V2.1-java \
