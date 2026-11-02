@@ -8,6 +8,7 @@ soong_namespace {
         "hardware/qcom-caf/wlan",
         "hardware/qcom-caf/sm8550",
         "hardware/xiaomi",
+        "vendor/qcom/opensource/commonsys/display",
         "vendor/qcom/opensource/commonsys-intf/display",
         "vendor/qcom/opensource/dataservices",
     ],
@@ -2593,32 +2594,6 @@ cc_prebuilt_library_shared {
                 "libhidlmemory",
                 "android.hidl.allocator@1.0",
                 "libcpion",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "lib_bt_lhdc",
-    owner: "xiaomi",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/lib_bt_lhdc.so",
-            ],
-            shared_libs: [
-                "libcutils",
-                "liblog",
                 "libc++",
                 "libc",
                 "libm",
@@ -11430,7 +11405,7 @@ cc_prebuilt_library_shared {
                 "liblog",
                 "libutils",
                 "libwfdsourcesession_proprietary",
-                "vendor.qti.hardware.wifidisplaysession@1.0",
+                "vendor.qti.hardware.wifidisplaysession@1.0-vendor",
                 "libwfdcommonutils_proprietary",
                 "libhidlbase",
                 "libc++",
@@ -16366,7 +16341,8 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.qti.hardware.wifidisplaysession@1.0",
+    name: "vendor.qti.hardware.wifidisplaysession@1.0-vendor",
+    stem: "vendor.qti.hardware.wifidisplaysession@1.0",
     owner: "xiaomi",
     strip: {
         none: true,
@@ -16408,7 +16384,7 @@ cc_prebuilt_library_shared {
                 "libhidlbase",
                 "libutils",
                 "libcutils",
-                "vendor.qti.hardware.wifidisplaysession@1.0",
+                "vendor.qti.hardware.wifidisplaysession@1.0-vendor",
                 "libwfdsessionmodule",
                 "liblog",
                 "libc++",
@@ -17515,6 +17491,117 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+    name: "libmmosal",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libmmosal.so",
+            ],
+            shared_libs: [
+                "libutils",
+                "libcutils",
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmmparser_lite",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libmmparser_lite.so",
+            ],
+            shared_libs: [
+                "libutils",
+                "libcutils",
+                "liblog",
+                "libmmosal",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmmrtpdecoder",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libmmrtpdecoder.so",
+            ],
+            shared_libs: [
+                "libutils",
+                "liblog",
+                "libcutils",
+                "libmmosal",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmmrtpencoder",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libmmrtpencoder.so",
+            ],
+            shared_libs: [
+                "libmmosal",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
     name: "libqcc",
     owner: "xiaomi",
     strip: {
@@ -17646,6 +17733,607 @@ cc_prebuilt_library_shared {
                 "android.hardware.common-V2-ndk",
                 "vendor.qti.qccvndhal_aidl-V1-ndk",
                 "vendor.qti.qccsyshal_aidl-V1-ndk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libwfdavenhancements",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libwfdavenhancements.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libbinder",
+                "libutils",
+                "libgui",
+                "libui",
+                "libstagefright_foundation",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libwfdclient",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libwfdclient.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libbinder",
+                "libgui",
+                "libmmosal",
+                "libinput",
+                "libwfdsinksm",
+                "libwfdcommonutils",
+                "libwfdconfigutils",
+                "libwfdmminterface",
+                "libnativewindow",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libwfdcommonutils",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libwfdcommonutils.so",
+            ],
+            shared_libs: [
+                "libmmosal",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libbinder",
+                "libnl",
+                "libwfdmminterface",
+                "libwfdconfigutils",
+                "libui",
+                "libgui",
+                "libwfddisplayconfig",
+                "libion",
+                "libprocessgroup",
+                "libdng_sdk",
+                "libjpeg",
+                "libpiex",
+                "libpng",
+                "libnativewindow",
+                "libEGL",
+                "libGLESv2",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libwfdconfigutils",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libwfdconfigutils.so",
+            ],
+            shared_libs: [
+                "libmmosal",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libbinder",
+                "libnl",
+                "libwfdmminterface",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libwfddisplayconfig",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libwfddisplayconfig.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "libutils",
+                "libcutils",
+                "liblog",
+                "vendor.display.config@2.0",
+                "libdisplayconfig.system.qti",
+                "libbinder_ndk",
+                "vendor.qti.hardware.display.config-V16-ndk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libwfdmminterface",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libwfdmminterface.so",
+            ],
+            shared_libs: [
+                "libmmosal",
+                "liblog",
+                "libutils",
+                "libwfddisplayconfig",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libwfdmmsink",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libwfdmmsink.so",
+            ],
+            shared_libs: [
+                "libmmosal",
+                "liblog",
+                "libutils",
+                "libmedia",
+                "libaudioclient",
+                "libgui",
+                "libbinder",
+                "libwfdcommonutils",
+                "libwfdconfigutils",
+                "libui",
+                "libmmparser_lite",
+                "libmmrtpdecoder",
+                "libcutils",
+                "libwfddisplayconfig",
+                "libhwui",
+                "libwfdmminterface",
+                "libhidlbase",
+                "libhidlmemory",
+                "android.hidl.allocator@1.0",
+                "android.hidl.memory@1.0",
+                "libandroid",
+                "libmediandk",
+                "libaaudio",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libwfdmmsrc_system",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libwfdmmsrc_system.so",
+            ],
+            shared_libs: [
+                "libbinder",
+                "libmmosal",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libgui",
+                "libui",
+                "libwfdcommonutils",
+                "libwfdconfigutils",
+                "libinput",
+                "libwfdmminterface",
+                "libwfddisplayconfig",
+                "libmedia_helper",
+                "libaudioclient",
+                "libwfdavenhancements",
+                "libhidlbase",
+                "libgralloctypes",
+                "android.hardware.graphics.mapper@4.0",
+                "libvndksupport",
+                "android.hardware.graphics.allocator@4.0",
+                "android.hardware.graphics.allocator-V2-ndk",
+                "libbinder_ndk",
+                "libaudiobase",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libwfdnative",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libwfdnative.so",
+            ],
+            shared_libs: [
+                "libandroid_runtime",
+                "libgui",
+                "libui",
+                "libbinder",
+                "libinput",
+                "libnativehelper",
+                "libutils",
+                "liblog",
+                "libwfdclient",
+                "android.hardware.graphics.common@1.0",
+                "android.hardware.graphics.bufferqueue@1.0",
+                "android.hardware.graphics.bufferqueue@2.0",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libwfdrtsp",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libwfdrtsp.so",
+            ],
+            shared_libs: [
+                "libc++",
+                "libcutils",
+                "libutils",
+                "libmmosal",
+                "libwfdcommonutils",
+                "libwfdconfigutils",
+                "libwfdmminterface",
+                "liblog",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libwfdservice",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libwfdservice.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libbinder",
+                "libgui",
+                "libwfdsinksm",
+                "libmmosal",
+                "libwfdcommonutils",
+                "libwfdconfigutils",
+                "libinput",
+                "libwfdmminterface",
+                "libmedia_helper",
+                "libaudioclient",
+                "libaudiobase",
+                "libaudiofoundation",
+                "audioclient-types-aidl-cpp",
+                "android.media.audio.common.types-V5-cpp",
+                "libwfdmmsrc_system",
+                "libwfdavenhancements",
+                "libhidlbase",
+                "vendor.qti.hardware.wifidisplaysession@1.0",
+                "vendor.qti.hardware.wifidisplaysession_aidl-V2-ndk",
+                "libbinder_ndk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libwfdsinksm",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libwfdsinksm.so",
+            ],
+            shared_libs: [
+                "libc++",
+                "libcutils",
+                "libutils",
+                "libwfdrtsp",
+                "libwfduibcinterface",
+                "libwfdmmsink",
+                "libmmosal",
+                "libmedia",
+                "libwfdcommonutils",
+                "libwfdconfigutils",
+                "libwfdmminterface",
+                "libmmrtpencoder",
+                "libmmrtpdecoder",
+                "libhidlbase",
+                "libnativewindow",
+                "libmediandk",
+                "liblog",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libwfduibcinterface",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libwfduibcinterface.so",
+            ],
+            shared_libs: [
+                "libmmosal",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libwfduibcsrcinterface",
+                "libwfduibcsinkinterface",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libwfduibcsink",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libwfduibcsink.so",
+            ],
+            shared_libs: [
+                "libmmosal",
+                "libutils",
+                "liblog",
+                "libcutils",
+                "libwfdconfigutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libwfduibcsinkinterface",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libwfduibcsinkinterface.so",
+            ],
+            shared_libs: [
+                "libmmosal",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libwfduibcsink",
+                "libwfdcommonutils",
+                "libwfdconfigutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libwfduibcsrc",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libwfduibcsrc.so",
+            ],
+            shared_libs: [
+                "libmmosal",
+                "libwfdcommonutils",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libwfdconfigutils",
+                "libwfddisplayconfig",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libwfduibcsrcinterface",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libwfduibcsrcinterface.so",
+            ],
+            shared_libs: [
+                "libmmosal",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libwfduibcsrc",
+                "libwfdcommonutils",
+                "libwfdconfigutils",
                 "libc++",
                 "libc",
                 "libm",
@@ -17889,6 +18577,60 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+    name: "vendor.qti.hardware.wifidisplaysession@1.0",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/vendor.qti.hardware.wifidisplaysession@1.0.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.qti.hardware.wifidisplaysession_aidl-V2-ndk",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/vendor.qti.hardware.wifidisplaysession_aidl-V2-ndk.so",
+            ],
+            shared_libs: [
+                "libbinder_ndk",
+                "android.hardware.common-V2-ndk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
     name: "vendor.qti.imsrtpservice@3.0",
     owner: "xiaomi",
     strip: {
@@ -18056,39 +18798,6 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libmfido",
-    owner: "xiaomi",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/odm/lib64/libmfido.so",
-            ],
-            shared_libs: [
-                "vendor.xiaomi.hardware.mfidoca@1.0",
-                "vendor.xiaomi.hardware.mtdservice@1.0",
-                "liblog",
-                "libcutils",
-                "libutils",
-                "libQSEEComAPI",
-                "libhidlbase",
-                "libhidltransport",
-                "libmisight",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    device_specific: true,
-}
-
-cc_prebuilt_library_shared {
     name: "libmiClstc",
     owner: "xiaomi",
     strip: {
@@ -18156,97 +18865,6 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libmt",
-    owner: "xiaomi",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/odm/lib64/libmt.so",
-            ],
-            shared_libs: [
-                "libcrypto",
-                "libhardware",
-                "libkeymasterprovision",
-                "libkeymasterutils",
-                "libkeymasterdeviceutils",
-                "vendor.xiaomi.hardware.mtdservice@1.0",
-                "liblog",
-                "libutils",
-                "libcutils",
-                "libhidlbase",
-                "libhidltransport",
-                "libQSEEComAPI",
-                "libmlipay",
-                "vendor.xiaomi.hardware.mlipay@1.0",
-                "libmfido",
-                "vendor.xiaomi.hardware.mfidoca@1.0",
-                "libminkdescriptor",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    device_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libmt@1.3",
-    owner: "xiaomi",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/odm/lib64/libmt@1.3.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libutils",
-                "libcutils",
-                "libcrypto-v33",
-                "libhardware",
-                "libselinux",
-                "libhidlbase",
-                "libhidltransport",
-                "libkeymasterprovision",
-                "libkeymasterutils",
-                "libkeymasterdeviceutils",
-                "libQSEEComAPI",
-                "vendor.xiaomi.hardware.mtdservice@1.3",
-                "vendor.xiaomi.hardware.mtdservice@1.2",
-                "vendor.xiaomi.hardware.mtdservice@1.1",
-                "vendor.xiaomi.hardware.mtdservice@1.0",
-                "libmisight",
-                "libminkdescriptor",
-                "libmlipay@1.1",
-                "vendor.xiaomi.hardware.mlipay@1.1",
-                "libmfido",
-                "vendor.xiaomi.hardware.mfidoca@1.0",
-                "libxml2",
-                "libwvkeybox",
-                "liboemcrypto",
-                "libqtikeymaster4",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    device_specific: true,
-}
-
-cc_prebuilt_library_shared {
     name: "libstnfc-auth",
     owner: "xiaomi",
     strip: {
@@ -18266,46 +18884,6 @@ cc_prebuilt_library_shared {
                 "liblog",
                 "libutils",
                 "nfc_nci.st21nfc.st",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    device_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libtida@1.2",
-    owner: "xiaomi",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/odm/lib64/libtida@1.2.so",
-            ],
-            shared_libs: [
-                "vendor.xiaomi.hardware.tidaservice@1.0",
-                "vendor.xiaomi.hardware.tidaservice@1.1",
-                "vendor.xiaomi.hardware.tidaservice@1.2",
-                "vendor.xiaomi.hardware.mtdservice@1.0",
-                "libbase",
-                "libcrypto",
-                "libcutils",
-                "liblog",
-                "libmt",
-                "libutils",
-                "libQSEEComAPI",
-                "libhardware",
-                "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
-                "libmisight",
                 "libc++",
                 "libc",
                 "libm",
@@ -18544,93 +19122,6 @@ cc_prebuilt_library_shared {
     device_specific: true,
 }
 
-cc_prebuilt_library_shared {
-    name: "vendor.xiaomi.hardware.tidaservice@1.0",
-    owner: "xiaomi",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/odm/lib64/vendor.xiaomi.hardware.tidaservice@1.0.so",
-            ],
-            shared_libs: [
-                "libhidlbase",
-                "liblog",
-                "libutils",
-                "libcutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    device_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "vendor.xiaomi.hardware.tidaservice@1.1",
-    owner: "xiaomi",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/odm/lib64/vendor.xiaomi.hardware.tidaservice@1.1.so",
-            ],
-            shared_libs: [
-                "vendor.xiaomi.hardware.tidaservice@1.0",
-                "libhidlbase",
-                "liblog",
-                "libutils",
-                "libcutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    device_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "vendor.xiaomi.hardware.tidaservice@1.2",
-    owner: "xiaomi",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/odm/lib64/vendor.xiaomi.hardware.tidaservice@1.2.so",
-            ],
-            shared_libs: [
-                "vendor.xiaomi.hardware.tidaservice@1.0",
-                "vendor.xiaomi.hardware.tidaservice@1.1",
-                "libhidlbase",
-                "liblog",
-                "libutils",
-                "libcutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    device_specific: true,
-}
-
 android_app_import {
     name: "CACertService",
     owner: "xiaomi",
@@ -18784,6 +19275,18 @@ android_app_import {
 }
 
 android_app_import {
+    name: "WfdService",
+    owner: "xiaomi",
+    apk: "proprietary/system_ext/priv-app/WfdService/WfdService.apk",
+    certificate: "platform",
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: true,
+    system_ext_specific: true,
+}
+
+android_app_import {
     name: "ims",
     owner: "xiaomi",
     apk: "proprietary/system_ext/priv-app/ims/ims.apk",
@@ -18808,6 +19311,14 @@ android_app_import {
     },
     privileged: true,
     system_ext_specific: true,
+}
+
+dex_import {
+    name: "WfdCommon",
+    owner: "xiaomi",
+    jars: [
+        "proprietary/system/framework/WfdCommon.jar",
+    ],
 }
 
 dex_import {
@@ -19426,33 +19937,6 @@ prebuilt_etc_xml {
     name: "android.hardware.gnss-aidl-service-qti.xml",
     owner: "xiaomi",
     src: "proprietary/odm/etc/vintf/manifest/android.hardware.gnss-aidl-service-qti.xml",
-    filename_from_src: true,
-    sub_dir: "vintf/manifest",
-    device_specific: true,
-}
-
-prebuilt_etc_xml {
-    name: "manifest_vendor.xiaomi.hardware.mfidoca.xml",
-    owner: "xiaomi",
-    src: "proprietary/odm/etc/vintf/manifest/manifest_vendor.xiaomi.hardware.mfidoca.xml",
-    filename_from_src: true,
-    sub_dir: "vintf/manifest",
-    device_specific: true,
-}
-
-prebuilt_etc_xml {
-    name: "manifest_vendor.xiaomi.hardware.mtdservice.xml",
-    owner: "xiaomi",
-    src: "proprietary/odm/etc/vintf/manifest/manifest_vendor.xiaomi.hardware.mtdservice.xml",
-    filename_from_src: true,
-    sub_dir: "vintf/manifest",
-    device_specific: true,
-}
-
-prebuilt_etc_xml {
-    name: "manifest_vendor.xiaomi.hardware.tidaservice.xml",
-    owner: "xiaomi",
-    src: "proprietary/odm/etc/vintf/manifest/manifest_vendor.xiaomi.hardware.tidaservice.xml",
     filename_from_src: true,
     sub_dir: "vintf/manifest",
     device_specific: true,
@@ -22226,7 +22710,7 @@ cc_prebuilt_binary {
                 "proprietary/vendor/bin/wifidisplayhalservice",
             ],
             shared_libs: [
-                "vendor.qti.hardware.wifidisplaysession@1.0",
+                "vendor.qti.hardware.wifidisplaysession@1.0-vendor",
                 "vendor.qti.hardware.wifidisplaysessionl@1.0-halimpl",
                 "libhidlbase",
                 "libutils",
@@ -22367,24 +22851,24 @@ cc_prebuilt_binary {
 }
 
 cc_prebuilt_binary {
-    name: "fidoca",
+    name: "wfdservice64",
     owner: "xiaomi",
     target: {
         android_arm64: {
             srcs: [
-                "proprietary/odm/bin/fidoca",
+                "proprietary/system_ext/bin/wfdservice64",
             ],
             shared_libs: [
-                "vendor.xiaomi.hardware.mfidoca@1.0",
-                "vendor.xiaomi.hardware.mtdservice@1.0",
                 "liblog",
-                "libcutils",
                 "libutils",
-                "libQSEEComAPI",
+                "libcutils",
+                "libbinder",
+                "libwfdservice",
+                "libmmosal",
+                "libwfdcommonutils",
+                "libwfdconfigutils",
                 "libhidlbase",
-                "libhidltransport",
-                "libmisight",
-                "libmfido",
+                "libavservices_minijail",
                 "libc++",
                 "libc",
                 "libm",
@@ -22397,7 +22881,7 @@ cc_prebuilt_binary {
         none: true,
     },
     prefer: true,
-    device_specific: true,
+    system_ext_specific: true,
 }
 
 cc_prebuilt_binary {
@@ -22505,77 +22989,11 @@ cc_prebuilt_binary {
     device_specific: true,
 }
 
-cc_prebuilt_binary {
-    name: "mtd@1.3",
-    owner: "xiaomi",
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/odm/bin/mtd@1.3",
-            ],
-            shared_libs: [
-                "vendor.xiaomi.hardware.mtdservice@1.3",
-                "libmt@1.3",
-                "liblog",
-                "libutils",
-                "libcutils",
-                "libselinux",
-                "libhidltransport",
-                "libhidlbase",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    strip: {
-        none: true,
-    },
-    prefer: true,
-    device_specific: true,
-}
-
-cc_prebuilt_binary {
-    name: "tidad@1.2",
-    owner: "xiaomi",
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/odm/bin/tidad@1.2",
-            ],
-            shared_libs: [
-                "vendor.xiaomi.hardware.tidaservice@1.0",
-                "vendor.xiaomi.hardware.tidaservice@1.1",
-                "vendor.xiaomi.hardware.tidaservice@1.2",
-                "vendor.xiaomi.hardware.mtdservice@1.0",
-                "libbase",
-                "libcrypto",
-                "libcutils",
-                "liblog",
-                "libmt",
-                "libutils",
-                "libQSEEComAPI",
-                "libhardware",
-                "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
-                "libmisight",
-                "libtida@1.2",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    strip: {
-        none: true,
-    },
-    prefer: true,
-    device_specific: true,
+install_symlink {
+    name: "system_ext_priv-app_WfdService_lib_arm64_libwfdnative_so",
+    system_ext_specific: true,
+    installed_location: "priv-app/WfdService/lib/arm64/libwfdnative.so",
+    symlink_target: "/system_ext/lib64/libwfdnative.so",
 }
 
 install_symlink {
